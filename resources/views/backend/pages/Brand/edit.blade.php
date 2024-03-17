@@ -49,7 +49,7 @@
                         <div class="col-sm-8 mg-t-10 mg-sm-t-0">
                         <select  class="form-control" name="status" aria-label="Default select example">
                                 <option selected>Open this select menu</option>
-                                <option value="0" @if($brand->status==0)
+                                <option value="0" @if($brand->Status==0)
                                     selected @endif>Inactive</option>
                                 <option value="1" @if($brand->Status==1)
                                     selected @endif>Active</option>
@@ -59,7 +59,7 @@
                     <div class="row mg-t-20">
                         <label class="col-sm-4 form-control-label">Uplode Image/Logo: <span class="tx-danger">*</span></label>
                         @if (!is_null($brand->image))
-                            <img style="width:50px; height:50px; border-radius:50%" class="border border-primary" src="{{asset('Backend/img/brand')}}/{{$brand->image}}" >
+                            <img style="width:50px; height:50px; padding:0px; border-radius:50%" class="border border-primary" src="{{asset('Backend/img/brand')}}/{{$brand->image}}" >
                             @else
                             No Image Uplode
                             @endif

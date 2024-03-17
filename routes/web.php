@@ -39,7 +39,7 @@ Route::group(['prefix'=>'Category'], function(){
    Route::get('/create', 'App\Http\Controllers\Backend\CategoryController@create')->name('Category.create');
    Route::post('/store', 'App\Http\Controllers\Backend\CategoryController@store')->name('Category.store');
    Route::get('/edit/{id}', 'App\Http\Controllers\Backend\CategoryController@edit')->name('Category.edit');
-   Route::post('/update/{id}', 'App\Http\Controllers\Backend\CategoryController@update')->name('Category.update');
+   Route::post('/update/{id}','App\Http\Controllers\Backend\CategoryController@update')->name('Category.update');
    Route::get('/destroy/{id}', 'App\Http\Controllers\Backend\CategoryController@destroy')->name('Category.destroy');
 });
 

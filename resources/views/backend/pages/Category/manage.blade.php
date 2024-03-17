@@ -46,7 +46,7 @@
                             @if ($category->is_parent==0)
                             <span class="badge badge-success">Primary Category </span>
                             @else
-                            <span class="badge badge-warning">{{$category->name}}</span>
+                            <span class="badge badge-warning">{{$category->parent->name}}</span>
                             @endif
                         </td>
                         <td>
@@ -78,7 +78,7 @@
                       <td>{{$subcat->description}}</td>
                       <td>
                          
-                          <span class="badge badge-warning">{{$subcat->is_parent->name}}</span>
+                          <span class="badge badge-warning">{{$subcat->parent->name}}</span>
                          
                       </td>
                       <td>
