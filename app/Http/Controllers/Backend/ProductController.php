@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Backend\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
+
 
 class ProductController extends Controller
 {
@@ -12,7 +17,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::orderBy('id', 'asc')->get(); 
+
+        return view('backend.pages.Products.manage' , compact('products'));
     }
 
     /**
@@ -20,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.Products.create');
     }
 
     /**
@@ -28,7 +35,42 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [
+              'title' => 'required|max:255',
+            ],
+            [
+              'title.required' => 'Enter the title',
+            ]
+          );
+      
+      
+          $product = new Product();
+          $product->title = $request->title;
+          $product->slug = Str::slug($request->title);
+          $product->short_desc = $request->short_desc;
+          $product->description = $request->description;
+          $product->tag = $request->tag;
+          $product->quantity  = $request->quantity;
+          $product->regular_price = $request->regular_price;
+          $product->offer_price = $request->offer_price;
+          $product->sku_code = $request->sku_code;
+          $product->product_type = $request->product_type;
+          $product->category_id = $request->category;
+          $product->brand_id = $request->brand;
+          $product->featured = $request->feture;
+          $product->status = $request->status;
+      
+          if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $img = rand() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('backend/img/product/' . $img);
+            Image::make($image)->save($location);
+            $product->image = $img;
+          }
+      
+          $product->save();
+        //   return redirect()->route('Product.manage');
     }
 
     /**

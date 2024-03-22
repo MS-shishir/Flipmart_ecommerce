@@ -11,7 +11,7 @@
     <div class="br-section-wrapper">
         <div class="col-xl-12">
             <div class="form-layout form-layout-4">
-                <h6 class="br-section-label">Update Category</h6>
+                <h6 class="br-section-label">Add Category</h6>
 
                 <!-- <p class="br-section-text">A basic form where labels are aligned in left.</p> -->
                 <form action="{{route('Category.update',$category->id)}}" method="POST" enctype="multipart/form-data" >

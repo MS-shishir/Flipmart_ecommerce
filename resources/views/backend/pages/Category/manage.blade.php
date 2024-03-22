@@ -9,7 +9,7 @@
     </div>
 <div class="br-pagebody ">
     <div class="br-section-wrapper">
-        <h6 class="br-section-label">Manage Brand</h6>
+        <h6 class="br-section-label">Manage Category</h6>
         <!-- <p class="br-section-text">Using the most basic table markup.</p> -->
 
         <div class="bd bd-gray-300 rounded table-responsive">
@@ -62,27 +62,27 @@
                              <a href="#"data-bs-toggle="modal" data-bs-target="#dleteleModal{{'$category->id'}}" class="btn btn-danger btn-icon rounded-circle mg-r-5" style=" width: 25px;height: 25px;"><div><i class="fa fa-envelope-o"></i></div></a>
                             </td>
                     </tr>
-                    @foreach(App\Models\Backend\Category::orderBy('name','asc')->where('is_parent',$category->id)->get() as $subcat)
+                    @foreach(App\Models\Backend\Category::orderBy('name','asc')->where('is_parent',$category->id)->get() as $subcate)
                     @php $j=$i+1; @endphp
                     <tr>
                       <th scope="row">{{$j}}</th>
                       <td>
-                          @if (!is_null($subcat->image))
-                          <img style="width:50px; height:50px; border-radius:50%" class="border border-primary " src="{{asset('Backend/img/category')}}/{{$subcat->image}}" >
+                          @if (!is_null($subcate->image))
+                          <img style="width:50px; height:50px; border-radius:50%" class="border border-primary " src="{{asset('Backend/img/category')}}/{{$subcate->image}}" >
                           @else
                           No Image Uplode
                           @endif
                       </td>
-                      <td>{{$subcat->name}}</td>
-                      <td>{{$subcat->slug}}</td>
-                      <td>{{$subcat->description}}</td>
+                      <td>{{$subcate->name}}</td>
+                      <td>{{$subcate->slug}}</td>
+                      <td>{{$subcate->description}}</td>
                       <td>
                          
-                          <span class="badge badge-warning">{{$subcat->parent->name}}</span>
+                          <span class="badge badge-warning">{{$subcate->parent->name}}</span>
                          
                       </td>
                       <td>
-                          @if ($subcat->status==1)
+                          @if ($subcate->status==1)
                           <span class="badge badge-success">Active</span>
                           @else
                           <span class="badge badge-warning">Inactive</span>
@@ -90,8 +90,8 @@
                       </td>
                       <td>
                      
-                           <a href="{{route('Category.edit',$subcat->id)}}" class="btn btn-success rounded-circle btn-icon" style=" width: 25px;height: 25px;" ><div><i class="fa fa-shar-alt"></i></div></a>
-                           <a href="#"data-bs-toggle="modal" data-bs-target="#dleteleModal{{'$subcat->id'}}" class="btn btn-danger btn-icon rounded-circle mg-r-5" style=" width: 25px;height: 25px;"><div><i class="fa fa-envelope-o"></i></div></a>
+                           <a href="{{route('Category.edit',$subcate->id)}}" class="btn btn-success rounded-circle btn-icon" style=" width: 25px;height: 25px;" ><div><i class="fa fa-shar-alt"></i></div></a>
+                           <a href="#"data-bs-toggle="modal" data-bs-target="#dleteleModalsub{{'$subcate->id'}}" class="btn btn-danger btn-icon rounded-circle mg-r-5" style=" width: 25px;height: 25px;"><div><i class="fa fa-envelope-o"></i></div></a>
                           </td>
                     </tr>
                     @php $j++;
@@ -119,11 +119,11 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Brand</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Category</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-       Are you sure Delete this Brand
+       Are you sure Delete this Category
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -133,19 +133,20 @@
     </div>
   </div>
 {{-- subcategory --}}
-  <div class="modal fade" id="dleteleModal{{'$subcat->id'}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="dleteleModalsub{{'$subcate->id'}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Brand</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Category</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-       Are you sure Delete this Brand
+       Are you sure Delete this Category
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <a type="submit" href="{{route('Category.destroy',$subcat->id)}}" class="btn btn-danger">Delete</a>
+          
+          <a type="submit" href="{{route('Category.destroy',$subcate->id)}}" class="btn btn-danger">Delete</a>
         </div>
       </div>
     </div>

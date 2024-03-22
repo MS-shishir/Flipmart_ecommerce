@@ -68,7 +68,7 @@ class CategoryController extends Controller
    */
   public function show(string $id)
   {
-    //
+  //  
   }
 
   /**
@@ -132,7 +132,7 @@ class CategoryController extends Controller
         return redirect()->route('Category.manage');
 }
 else{
-  return redirect()->route('category.manage');
+  return redirect()->route('Category.manage');
 }
   }
 }
