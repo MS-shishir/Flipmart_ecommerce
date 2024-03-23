@@ -12,4 +12,7 @@ class Category extends Model
     {
         return $this->belongsTo(Category::class,'is_parent');
     }
+    public function category(){
+        return $this->hasMany(Category::class);
+    }
 }

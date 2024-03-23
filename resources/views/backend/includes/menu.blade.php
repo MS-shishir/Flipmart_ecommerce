@@ -49,6 +49,39 @@
             <!-- <li class="sub-item"><a href="card-listing.html" class="sub-link">Shop &amp; Listing</a></li> -->
           </ul>
         </li>
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+            <span class="menu-item-label">Division</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            <li class="sub-item"><a href="{{route('Division.create')}}" class="sub-link">Create Division</a></li>
+            <li class="sub-item"><a href="{{route('Division.manage')}}" class="sub-link">Manage Division</a></li>
+            <!-- <li class="sub-item"><a href="card-listing.html" class="sub-link">Shop &amp; Listing</a></li> -->
+          </ul>
+        </li>
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+            <span class="menu-item-label">District</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            <li class="sub-item"><a href="{{route('District.create')}}" class="sub-link">Create District</a></li>
+            <li class="sub-item"><a href="{{route('District.manage')}}" class="sub-link">Manage District</a></li>
+            <!-- <li class="sub-item"><a href="card-listing.html" class="sub-link">Shop &amp; Listing</a></li> -->
+          </ul>
+        </li>
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+            <span class="menu-item-label">Slider</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            <li class="sub-item"><a href="{{route('Slider.create')}}" class="sub-link">Create Slider</a></li>
+            <li class="sub-item"><a href="{{route('Slider.manage')}}" class="sub-link">Manage Slider</a></li>
+            <!-- <li class="sub-item"><a href="card-listing.html" class="sub-link">Shop &amp; Listing</a></li> -->
+          </ul>
+        </li>
       </ul><!-- br-sideleft-menu -->
 
     

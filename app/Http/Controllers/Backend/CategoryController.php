@@ -104,8 +104,8 @@ class CategoryController extends Controller
     $category->is_parent = $request->parant;
     $category->status = $request->status;
     if(!is_null($request->image)){
-      if(File::exists('backend/img/brand',$category->image)){
-         File::delete('backend/img/brand',$category->image);
+      if(File::exists('backend/img/category',$category->image)){
+         File::delete('backend/img/category',$category->image);
       }
       $image = $request->file('image');
       $img = rand() . '.' . $image->getClientOriginalExtension();

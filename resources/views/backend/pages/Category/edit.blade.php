@@ -39,7 +39,7 @@
                                     @if ($category->parent)
                                         {{ $category->parent->name }}
                                     @else
-                                        No Parent
+                                       Primary Category
                                     @endif
                                 </option>
                                 @foreach (App\Models\Backend\Category::orderBy('name', 'asc')->where('is_parent', 0)->get() as $parentcat)

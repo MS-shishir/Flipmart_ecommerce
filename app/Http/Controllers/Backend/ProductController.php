@@ -70,7 +70,7 @@ class ProductController extends Controller
           }
       
           $product->save();
-        //   return redirect()->route('Product.manage');
+          return redirect()->route('Product.manage');
     }
 
     /**
@@ -86,15 +86,59 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::find($id);
+    if (!is_null($product)) {
+      return view('backend.pages.Products.edit', compact('product'));
+    } else {
+      return redirect()->route('Product.manage');
     }
+  }
+    
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate(
+            [
+              'title' => 'required|max:255',
+            ],
+            [
+              'title.required' => 'Enter the title',
+            ]
+          );
+      
+      
+          $product =Product::find($id);
+          $product->title = $request->title;
+          $product->slug = Str::slug($request->title);
+          $product->short_desc = $request->short_desc;
+          $product->description = $request->description;
+          $product->tag = $request->tag;
+          $product->quantity  = $request->quantity;
+          $product->regular_price = $request->regular_price;
+          $product->offer_price = $request->offer_price;
+          $product->sku_code = $request->sku_code;
+          $product->product_type = $request->product_type;
+          $product->category_id = $request->category;
+          $product->brand_id = $request->brand;
+          $product->featured = $request->feture;
+          $product->status = $request->status;
+      
+          if(!is_null($request->image)){
+            if(File::exists('backend/img/product',$product->image)){
+               File::delete('backend/img/product',$product->image);
+            }
+            $image = $request->file('image');
+            $img = rand() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('backend/img/product/' . $img);
+            Image::make($image)->save($location);
+            $product->image = $img;
+          }
+      
+          $product->save();
+          return redirect()->route('Product.manage');
     }
 
     /**
@@ -102,6 +146,16 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product= Product::find($id);
+        if(!is_null($product)){
+          if(File::exists('backend/img/product',$product->image)){
+             File::delete('backend/img/product',$product->image);
+          }
+          $product->delete();
+          return redirect()->route('Product.manage');
+  }
+  else{
+    return redirect()->route('Product.manage');
+  }
     }
 }

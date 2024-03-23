@@ -53,6 +53,36 @@ Route::group(['prefix'=>'Product'], function(){
    Route::get('/destroy/{id}', 'App\Http\Controllers\Backend\ProductController@destroy')->name('Product.destroy');
 });
 
+// Divisions route
+Route::group(['prefix'=>'Division'], function(){
+   Route::get('/manage', 'App\Http\Controllers\Backend\DivisionController@index')->name('Division.manage');
+   Route::get('/create', 'App\Http\Controllers\Backend\DivisionController@create')->name('Division.create');
+   Route::post('/store', 'App\Http\Controllers\Backend\DivisionController@store')->name('Division.store');
+   Route::get('/edit/{id}', 'App\Http\Controllers\Backend\DivisionController@edit')->name('Division.edit');
+   Route::post('/update/{id}', 'App\Http\Controllers\Backend\DivisionController@update')->name('Division.update');
+   Route::get('/destroy/{id}', 'App\Http\Controllers\Backend\DivisionController@destroy')->name('Division.destroy');
+});
+
+// Districts route
+Route::group(['prefix'=>'District'], function(){
+   Route::get('/manage', 'App\Http\Controllers\Backend\DistrictController@index')->name('District.manage');
+   Route::get('/create', 'App\Http\Controllers\Backend\DistrictController@create')->name('District.create');
+   Route::post('/store', 'App\Http\Controllers\Backend\DistrictController@store')->name('District.store');
+   Route::get('/edit/{id}', 'App\Http\Controllers\Backend\DistrictController@edit')->name('District.edit');
+   Route::post('/update/{id}', 'App\Http\Controllers\Backend\DistrictController@update')->name('District.update');
+   Route::get('/destroy/{id}', 'App\Http\Controllers\Backend\DistrictController@destroy')->name('District.destroy');
+});
+
+// Slider route
+Route::group(['prefix'=>'Slider'], function(){
+   Route::get('/manage', 'App\Http\Controllers\Backend\SliderController@index')->name('Slider.manage');
+   Route::get('/create','App\Http\Controllers\Backend\SliderController@create')->name('Slider.create');
+   Route::post('/store', 'App\Http\Controllers\Backend\SliderController@store')->name('Slider.store');
+   Route::get('/edit/{id}','App\Http\Controllers\Backend\SliderController@edit')->name('Slider.edit');
+   Route::post('/update/{id}', 'App\Http\Controllers\Backend\SliderController@update')->name('Slider.update');
+   Route::get('/destroy/{id}','App\Http\Controllers\Backend\SliderController@destroy')->name('Slider.destroy');
+});
+
 
 
 });
