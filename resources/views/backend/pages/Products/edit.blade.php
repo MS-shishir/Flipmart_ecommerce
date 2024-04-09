@@ -129,6 +129,7 @@
                             </select>
                         </div>
                     </div>
+                    
                     <div class="row mg-t-20">
                         <label class="col-sm-4 form-control-label">Is Feture: <span class="tx-danger">*</span></label>
                         <div class="col-sm-8 mg-t-10 mg-sm-t-0">
