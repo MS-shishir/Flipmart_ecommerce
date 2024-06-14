@@ -20,7 +20,7 @@
 
                         <label class="col-sm-4 form-control-label">Slider Title: <span class="tx-danger">*</span></label>
                         <div class="col-sm-8 mg-t-10 mg-sm-t-0">
-                            <input type="text" name="title" class="form-control" placeholder="Enter titlr">
+                            <input type="text" name="title" class="form-control" placeholder="Enter title">
                         </div>
                     </div>
                     <div class="row mg-t-20">
@@ -55,7 +55,7 @@
                     <div class="row mg-t-20">
                         <label class="col-sm-4 form-control-label">Uplode Image/Logo: <span class="tx-danger">*</span></label>
                         <div class="col-sm-8 mg-t-10 mg-sm-t-0">
-                            <input class="form-control fileuplode" name="image" type="file" id="formFile">
+                            <input class=" fileuplode" name="image" type="file" id="formFile">
                         </div>
                     </div>
 

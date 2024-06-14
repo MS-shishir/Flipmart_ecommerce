@@ -46,7 +46,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-3 logo-holder"> 
         <!-- ============================================================= LOGO ============================================================= -->
-        <div class="logo"> <a href="home.html"> <img src="assets/images/logo.png" alt="logo"> </a> </div>
+        <div class="logo"> <a href="home.html"> <img src="frontend/images/logo.png" alt="logo"> </a> </div>
         <!-- /.logo --> 
         <!-- ============================================================= LOGO : END ============================================================= --> </div>
       <!-- /.logo-holder -->
@@ -91,7 +91,7 @@
               <div class="cart-item product-summary">
                 <div class="row">
                   <div class="col-xs-4">
-                    <div class="image"> <a href="detail.html"><img src="assets/images/cart.jpg" alt=""></a> </div>
+                    <div class="image"> <a href="detail.html"><img src="frontend/images/cart.jpg" alt=""></a> </div>
                   </div>
                   <div class="col-xs-7">
                     <h3 class="name"><a href="index8a95.html?page-detail">Simple Product</a></h3>

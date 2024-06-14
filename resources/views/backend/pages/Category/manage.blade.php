@@ -4,7 +4,7 @@
         <!-- <i class="icon ion-ios-gear-outline tx-24" style="font-size:2rem"></i> -->
         <div>
             <!-- <h4 class="">Dashboard</h4>
-                  <p class="mg-b-0">All Brands Manage</p> -->
+                      <p class="mg-b-0">All Brands Manage</p> -->
         </div>
     </div>
     <div class="br-pagebody ">
@@ -27,10 +27,9 @@
                         </tr>
                     </thead>
                     <tbody style="font-size: 15px">
-                      @php $i=1; @endphp
+                        @php $i=1; @endphp
                         @foreach ($categorys as $category)
                             @if ($category->is_parent == 0)
-                               
                                 <tr>
                                     <th scope="row">{{ $i }}</th>
                                     <td>
@@ -101,8 +100,8 @@
                                 </div>
 
                                 {{-- SubCategory --}}
+                                @php $j=$i+1; @endphp
                                 @foreach (App\Models\Backend\Category::orderBy('name', 'asc')->where('is_parent', $category->id)->get() as $subcat)
-                                    @php $j=$i+1 @endphp
                                     <tr>
                                         <!-- Display subcategory details -->
                                         <td>
@@ -175,13 +174,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @php $j++ @endphp
+                                    @php $j++; @endphp
                                 @endforeach
 
-                                @php$i++;
-                                @endphp
-                            @endif
-                        @endforeach
+                                @php $i++;
+                    @endphp
+                    @endif
+                    @endforeach
+                        
 
 
                     </tbody>
